@@ -1,6 +1,6 @@
 const fs = require("fs")
 
-Execute = (args) => {
+Execute = (args, rl) => {
     const cmd = args[1]
     const commandsDir = __dirname + "\\"
 

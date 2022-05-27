@@ -1,14 +1,13 @@
 const RustDocument = require("./document")
 const Method = require("./method")
 const fs = require("fs")
-const documentsPath = "./documents/"
+
+let documentsPath = "./documents/"
 
 class Connection {
     constructor(path) {
-        if (path) {
-            documentsPath = path
-            this.path = path
-        }
+        documentsPath = path
+        this.path = path
     }
     CreateDocument = (connection, name) => {
         const path = documentsPath + name + ".json"

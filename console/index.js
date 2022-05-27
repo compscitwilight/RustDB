@@ -25,7 +25,7 @@ function Command() {
         }
 
         const script = require(scriptPath)
-        script.Execute(args)
+        script.Execute(args, readline)
 
         Command()
     })
