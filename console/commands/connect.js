@@ -1,11 +1,7 @@
 const fs = require("fs")
 const { Connection } = require("../../index")
 
-const readline = require("readline").createInterface({
-    input: process.stdin,
-    output: process.stdout
-})
-
+let readline
 let Db
 
 Command = () => {
@@ -31,7 +27,7 @@ Execute = (args, rl) => {
         return
     }
     const connection = new Connection(connectionPath)
-    rl.close()
+    readline = rl
     console.clear()
 
     console.log("Connecting to " + connectionPath + "...")
