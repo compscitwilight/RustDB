@@ -2,11 +2,17 @@ const fs = require("fs")
 const { Connection } = require("../../index")
 
 let readline
+let commandDescriptions = {
+    help: "Displays all avaliable commands, their usage, and what they do. : Usage: help <?command>"
+}
+let connection
 let Db
 
 Command = () => {
     readline.question(Db + "> ", cmd => {
-        const command = cmd.toLowerCase()
+        const args = cmd.toLowerCase().split(" ")
+        const command = args[0]
+
         if (command == "") {
             Command()
             return
@@ -14,10 +20,20 @@ Command = () => {
 
         switch (command) {
             case "help":
-                console.log("Database commands:\n get : Gets a document")
+                const cmdQuery = args[1]
+                if (cmdQuery) {
+                    console.log(commandDescriptions[cmdQuery])
+                    break
+                }
+
+                for (const cmd of Object.keys(commandDescriptions)) {
+                    console.log(cmd + " : " + commandDescriptions[cmd] + "\n")
+                }
                 break
             case "exit":
                 process.exit()
+            case "get":
+
             default:
                 console.warn("Invalid command \"" + command + "\". Run \"help\" to see a list of avaliable commands.")
                 break
@@ -37,7 +53,7 @@ Execute = (args, rl) => {
         console.warn("The path entered does not exist. : " + connectionPath)
         return
     }
-    const connection = new Connection(connectionPath)
+    connection = new Connection(connectionPath)
     readline = rl
     console.clear()
 

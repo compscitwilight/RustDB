@@ -26,6 +26,6 @@ Execute = (args, rl) => {
 module.exports = {
     Name: "help",
     Description: "Lists all commands with a brief description on how to use them",
-    Usage: "help <command>",
+    Usage: "help <?command>",
     Execute
 }
