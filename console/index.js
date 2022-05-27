@@ -19,7 +19,7 @@ function Command() {
             return
         }
         if (!fs.existsSync(scriptPath)) {
-            console.warn("Invalid command \"" + command + "\"")
+            console.warn("Invalid command \"" + command + "\". Run \"help\" to see a list of avaliable commands.")
             Command()
             return
         }

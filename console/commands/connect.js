@@ -7,9 +7,20 @@ let Db
 Command = () => {
     readline.question(Db + "> ", cmd => {
         const command = cmd.toLowerCase()
+        if (command == "") {
+            Command()
+            return
+        }
 
-        if (command == "help") {
-            console.log("Database commands:\n get : Gets a document")
+        switch (command) {
+            case "help":
+                console.log("Database commands:\n get : Gets a document")
+                break
+            case "exit":
+                process.exit()
+            default:
+                console.warn("Invalid command \"" + command + "\". Run \"help\" to see a list of avaliable commands.")
+                break
         }
 
         Command()
