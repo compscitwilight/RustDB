@@ -6,9 +6,9 @@ RustDB is an in-development, NoSQL database written entirely with Javascript and
 It is also open-source (main reason why it's on here anyways), so create a pull-request or submit an issue if you have any suggestions :D
 
 ### RustDB Terminology
-Database - A directory that can be connected to via the Connection class and a path parameter
-Document - A .json file containing information
-Group - A subdirectory in a database
+* Database - A directory that stores data
+* Document - A .json file containing information
+* Group - A subdirectory in a database
 
 ### Getting Started
 Before we start, make sure that you have all of the prerequisites below:
