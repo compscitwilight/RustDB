@@ -27,6 +27,7 @@ Running "help" will list all avaliable commands that the RustDB console has to o
 #### Setting up a database
 Setting up a RustDB database is extremely simple, all you have to do is create a directory. Go ahead and create a directory anywhere and name it "LearnRustDB".
 
+#### Connecting to a database
 With this new empty directory, go back inside of the RustDB command line and run the "connect" command with the path to this directory as the first argument. If all goes well, this will establish a RustDB connection to the directory allowing you to manipulate it.
 
 Inside of the connection command line, you will be able to run the "help" command to list all database commands. These commands will be different from the ones in the normal command line.
