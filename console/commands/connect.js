@@ -10,7 +10,7 @@ let Db
 
 Command = () => {
     readline.question(Db + "> ", cmd => {
-        const args = cmd.toLowerCase().split(" ")
+        const args = cmd.split(" ")
         const command = args[0]
 
         if (command == "") {
@@ -20,7 +20,7 @@ Command = () => {
 
         switch (command) {
             case "help":
-                const cmdQuery = args[1]
+                const cmdQuery = args[1].toLowerCase()
                 if (cmdQuery) {
                     console.log(commandDescriptions[cmdQuery])
                     break
@@ -33,7 +33,21 @@ Command = () => {
             case "exit":
                 process.exit()
             case "get":
+                const document = args[1]
+                if (!document) {
+                    console.warn("Please enter a document")
+                    break
+                }
+                let documents = fs.readdirSync(Db)
+                //documents.forEach(doc => doc.toLowerCase())
 
+                for (const doc of Object.keys(documents)) {
+                    if (documents[doc] == document + ".json") {
+                        const docContent = fs.readFileSync(Db + "\\" + document + ".json")
+                        console.log(document + ":\n" + JSON.parse(docContent))
+                    }
+                }
+                break
             default:
                 console.warn("Invalid command \"" + command + "\". Run \"help\" to see a list of avaliable commands.")
                 break

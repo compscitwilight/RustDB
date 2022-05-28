@@ -24,11 +24,11 @@ class Connection {
         return fs.existsSync(documentsPath + document + ".json")
     }
     ReadDocument = (document) => {
-        if (!fs.existsSync(documentsPath + document + ".json")) throw new Error("Document doesn't exist.")
+        if (!fs.existsSync(documentsPath + document + ".json")) throw new Error("Document doesn't exist. : " + document)
         return JSON.parse(fs.readFileSync(documentsPath + document + ".json"))
     }
     GetDocument = (document) => {
-        if (!fs.existsSync(documentsPath + document + ".json")) throw new Error("Document doesn't exist.")
+        if (!fs.existsSync(documentsPath + document + ".json")) throw new Error("Document doesn't exist. : " + document)
         return new RustDocument(document, documentsPath + document + ".json", this)
     }
 }
