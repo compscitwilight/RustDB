@@ -33,3 +33,6 @@ With this new empty directory, go back inside of the RustDB command line and run
 Inside of the connection command line, you will be able to run the "help" command to list all database commands. These commands will be different from the ones in the normal command line.
 
 If you'd like to break the RustDB connection, just run the "exit" command.
+
+#### Manipulating a database
+With an established connection to a database, you are now able to read documents, create documents and groups, and delete documents. Basically you get it, you can completely manipulate the entire database.
