@@ -36,3 +36,8 @@ If you'd like to break the RustDB connection, just run the "exit" command.
 
 #### Manipulating a database
 With an established connection to a database, you are now able to read documents, create documents and groups, and delete documents. Basically you get it, you can completely manipulate the entire database.
+
+##### Commands
+These commands are the commands that are used to manipulate a database:
+
+`get <document>` - Reads a document in the database
