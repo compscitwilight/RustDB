@@ -6,13 +6,15 @@ let documentsPath
 
 DocumentDoesntExist = (path) => { throw new Error("Document doesn't exist. : " + path) }
 DocumentAlreadyExists = () => { throw new Error("Document already exists.") }
+GroupDoesntExist = (path) => { throw new Error("Group doesn't exist. : " + path) }
+GroupAlreadyExists = () => { throw new Error("Group already exists.") }
 
 class Connection {
     constructor(path) {
         documentsPath = path
         this.path = path
     }
-    CreateDocument = (connection, name) => {
+    CreateDocument = (name) => {
         const path = documentsPath + name + ".json"
         if (fs.existsSync(path)) DocumentAlreadyExists()
         if (name.endsWith(".json")) throw new Error("Remove .json extension from document name")
@@ -37,6 +39,13 @@ class Connection {
     DeleteDocument = (document) => {
         if (!this.DocumentExists(document)) DocumentDoesntExist(documentsPath + "\\" + document + ".json")
         fs.rmSync(documentsPath + document + ".json")
+    }
+    GroupExists = (group) => {
+        return fs.existsSync(documentsPath + "\\" + group)
+    }
+    CreateGroup = (group) => {
+        if (this.GroupExists(group)) GroupAlreadyExists(documentsPath + "\\" + group)
+        fs.mkdirSync(documentsPath + "\\" + group)
     }
 }
 
