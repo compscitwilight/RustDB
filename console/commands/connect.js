@@ -33,20 +33,30 @@ Command = () => {
             case "exit":
                 process.exit()
             case "get":
-                const document = args[1]
-                if (!document) {
-                    console.warn("Please enter a document")
+                const documentReq = args[1]
+                if (!documentReq) {
+                    console.warn("Please enter a document to read.")
                     break
                 }
-                let documents = fs.readdirSync(Db)
+                let documentsReq = fs.readdirSync(Db)
                 //documents.forEach(doc => doc.toLowerCase())
 
-                for (const doc of Object.keys(documents)) {
-                    if (documents[doc] == document + ".json") {
-                        const docContent = fs.readFileSync(Db + "\\" + document + ".json")
-                        console.log(document + ":\n" + JSON.parse(docContent))
+                for (const doc of Object.keys(documentsReq)) {
+                    if (documentsReq[doc] == document + ".json") {
+                        const docContent = fs.readFileSync(Db + "\\" + documentReq + ".json")
+                        console.log(documentReq + ":\n" + JSON.parse(docContent))
                     }
                 }
+                break
+            case "delete":
+                const documentDel = args[1]
+                if (!documentDel) {
+                    console.warn("Please enter a document to remove.")
+                    break
+                }
+
+                connection.DeleteDocument(documentDel)
+                console.log("Deleted " + documentDel + ".json")
                 break
             default:
                 console.warn("Invalid command \"" + command + "\". Run \"help\" to see a list of avaliable commands.")
@@ -72,7 +82,7 @@ Execute = (args, rl) => {
     console.clear()
 
     console.log("Connecting to " + connectionPath + "...")
-    Db = connectionPath
+    Db = connection.path
 
     console.log("Connected!")
     console.log("Type \"help\" to view the avaliable commands; Type \"exit\" to exit this command line")

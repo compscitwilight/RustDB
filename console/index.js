@@ -9,8 +9,10 @@ const readline = require("readline").createInterface({
 
 function Command() {
     readline.question("> ", cmd => {
-        const command = cmd.toLowerCase()
+        const command = cmd
         const args = command.split(" ")
+        args[0].toLowerCase()
+
         const scriptPath = __dirname + "\\commands\\" + args[0] + ".js"
 
         if (command == "exit") process.exit()
