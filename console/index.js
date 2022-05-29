@@ -1,14 +1,16 @@
 const fs = require("fs")
+const config = require("../config.json")
 const { Connection } = require("../index")
 let rustDbConnection = new Connection()
 
-const readline = require("readline").createInterface({
+const readline = require("readline")
+const readlineInterface = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 })
 
 function Command() {
-    readline.question("> ", cmd => {
+    readlineInterface.question("> ", cmd => {
         const command = cmd
         const args = command.split(" ")
         args[0].toLowerCase()
@@ -27,7 +29,7 @@ function Command() {
         }
 
         const script = require(scriptPath)
-        script.Execute(args, readline)
+        script.Execute(args, readlineInterface)
 
         Command()
     })
