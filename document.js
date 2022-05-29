@@ -13,9 +13,9 @@ class RustDocument {
     Add = (data) => {
         try {
             let res = this.connection.ReadDocument(this.name)
-            console.log(res)
             res.push(data)
-            fs.writeFileSync(this.path, JSON.stringify(res))
+
+            fs.writeFileSync(this.path, JSON.stringify(res), "utf-8")
         } catch (err) {
             throw err
         }
