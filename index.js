@@ -11,11 +11,12 @@ GroupAlreadyExists = () => { throw new Error("Group already exists.") }
 
 class Connection {
     constructor(path) {
+        if (!path.endsWith("/")) path += "/"
         documentsPath = path
         this.path = path
     }
     CreateDocument = (name) => {
-        const path = documentsPath + name + ".json"
+        const path = this.path + name + ".json"
         if (fs.existsSync(path)) DocumentAlreadyExists()
         if (name.endsWith(".json")) throw new Error("Remove .json extension from document name")
 
@@ -26,26 +27,26 @@ class Connection {
         }
     }
     DocumentExists = (document) => {
-        return fs.existsSync(documentsPath + document + ".json")
+        return fs.existsSync(this.path + document + ".json")
     }
     ReadDocument = (document) => {
-        if (!this.DocumentExists(document)) DocumentDoesntExist(documentsPath + "/" + document + ".json")
-        return JSON.parse(fs.readFileSync(documentsPath + document + ".json", "utf-8"))
+        if (!this.DocumentExists(document)) DocumentDoesntExist(this.path + document + ".json")
+        return JSON.parse(fs.readFileSync(this.path + document + ".json", "utf-8"))
     }
     GetDocument = (document) => {
-        if (!this.DocumentExists(document)) DocumentDoesntExist(documentsPath + "/" + document + ".json")
-        return new RustDocument(document, documentsPath + document + ".json", this)
+        if (!this.DocumentExists(document)) DocumentDoesntExist(this.path + document + ".json")
+        return new RustDocument(document, this.path + document + ".json", this)
     }
     DeleteDocument = (document) => {
-        if (!this.DocumentExists(document)) DocumentDoesntExist(documentsPath + "/" + document + ".json")
-        fs.rmSync(documentsPath + document + ".json")
+        if (!this.DocumentExists(document)) DocumentDoesntExist(this.path + document + ".json")
+        fs.rmSync(this.path + document + ".json")
     }
     GroupExists = (group) => {
-        return fs.existsSync(documentsPath + "/" + group)
+        return fs.existsSync(this.path + group)
     }
     CreateGroup = (group) => {
-        if (this.GroupExists(group)) GroupAlreadyExists(documentsPath + "/" + group)
-        fs.mkdirSync(documentsPath + "/" + group)
+        if (this.GroupExists(group)) GroupAlreadyExists(this.path + group)
+        fs.mkdirSync(this.path + group)
     }
 }
 
