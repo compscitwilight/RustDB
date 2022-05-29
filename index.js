@@ -29,23 +29,23 @@ class Connection {
         return fs.existsSync(documentsPath + document + ".json")
     }
     ReadDocument = (document) => {
-        if (!this.DocumentExists(document)) DocumentDoesntExist(documentsPath + "\\" + document + ".json")
+        if (!this.DocumentExists(document)) DocumentDoesntExist(documentsPath + "/" + document + ".json")
         return JSON.parse(fs.readFileSync(documentsPath + document + ".json", "utf-8"))
     }
     GetDocument = (document) => {
-        if (!this.DocumentExists(document)) DocumentDoesntExist(documentsPath + "\\" + document + ".json")
+        if (!this.DocumentExists(document)) DocumentDoesntExist(documentsPath + "/" + document + ".json")
         return new RustDocument(document, documentsPath + document + ".json", this)
     }
     DeleteDocument = (document) => {
-        if (!this.DocumentExists(document)) DocumentDoesntExist(documentsPath + "\\" + document + ".json")
+        if (!this.DocumentExists(document)) DocumentDoesntExist(documentsPath + "/" + document + ".json")
         fs.rmSync(documentsPath + document + ".json")
     }
     GroupExists = (group) => {
-        return fs.existsSync(documentsPath + "\\" + group)
+        return fs.existsSync(documentsPath + "/" + group)
     }
     CreateGroup = (group) => {
-        if (this.GroupExists(group)) GroupAlreadyExists(documentsPath + "\\" + group)
-        fs.mkdirSync(documentsPath + "\\" + group)
+        if (this.GroupExists(group)) GroupAlreadyExists(documentsPath + "/" + group)
+        fs.mkdirSync(documentsPath + "/" + group)
     }
 }
 

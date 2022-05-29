@@ -2,7 +2,7 @@ const fs = require("fs")
 
 Execute = (args, rl) => {
     const cmd = args[1]
-    const commandsDir = __dirname + "\\"
+    const commandsDir = __dirname + "/"
 
     let msg = ""
     if (cmd) {
@@ -16,7 +16,7 @@ Execute = (args, rl) => {
 
     const commands = fs.readdirSync(commandsDir)
     commands.forEach(cmd => {
-        const commandData = require(__dirname + "\\" + cmd)
+        const commandData = require(__dirname + "/" + cmd)
         msg += `${commandData.Name} : ${commandData.Description} : Usage: ${commandData.Usage}\n`
     })
 

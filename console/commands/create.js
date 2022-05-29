@@ -25,7 +25,7 @@ Execute = (args, rl) => {
             console.log("Created database @ " + path)
             break
         case ("group"):
-            const db = path.substring(0, path.lastIndexOf("\\"))
+            const db = path.substring(0, path.lastIndexOf("/"))
             const group = fs.mkdirSync(path)
             console.log("Created group in database " + db + " @ " + path)
             break

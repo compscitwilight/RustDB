@@ -15,7 +15,7 @@ function Command() {
         const args = command.split(" ")
         args[0].toLowerCase()
 
-        const scriptPath = __dirname + "\\commands\\" + args[0] + ".js"
+        const scriptPath = __dirname + "/commands/" + args[0] + ".js"
 
         if (command == "exit") process.exit()
         if (command == "") {

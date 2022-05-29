@@ -43,7 +43,7 @@ Command = () => {
 
                 for (const doc of Object.keys(documentsReq)) {
                     if (documentsReq[doc] == document + ".json") {
-                        const docContent = fs.readFileSync(Db + "\\" + documentReq + ".json")
+                        const docContent = fs.readFileSync(Db + "/" + documentReq + ".json")
                         console.log(documentReq + ":\n" + JSON.parse(docContent))
                     }
                 }
