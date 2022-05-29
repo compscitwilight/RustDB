@@ -48,7 +48,7 @@ Command = () => {
                     }
                 }
                 break
-            case "delete":
+            case "rm-doc":
                 const documentDel = args[1]
                 if (!documentDel) {
                     console.warn("Please enter a document to remove.")
@@ -56,7 +56,7 @@ Command = () => {
                 }
 
                 connection.DeleteDocument(documentDel)
-                console.log("Deleted " + documentDel + ".json")
+                console.log("Deleted document " + documentDel + ".json")
                 break
             default:
                 console.warn("Invalid command \"" + command + "\". Run \"help\" to see a list of avaliable commands.")
