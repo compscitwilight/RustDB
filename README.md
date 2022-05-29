@@ -7,37 +7,43 @@ It is also open-source (main reason why it's on here anyways), so create a pull-
 
 ### RustDB Terminology
 * Database - A directory that stores data
-* Document - A .json file containing information
+* Document - A .json file containing data inside of a database
 * Group - A subdirectory in a database
 
-### Getting Started
-Before we start, make sure that you have all of the prerequisites below:
-#### Prerequisites
-* Installation of Node.js (<a href="https://nodejs.org/en/download/">download</a>)
-* Basic knowledge on command line interfaces
-* Knowledge on databases
-* Knowledge on the JSON language
-
-Great, let's start!
-
-Creating a RustDB database is insanely simple. Start by downloading this repository, and running the console.bat file, this will open up the RustDB command line. 
-
-Running "help" will list all avaliable commands that the RustDB console has to offer. Go ahead and let your curiosity roam around the list of commands.
-
-#### Setting up a database
-Setting up a RustDB database is extremely simple, all you have to do is create a directory. Go ahead and create a directory anywhere and name it "LearnRustDB".
-
-#### Connecting to a database
-With this new empty directory, go back inside of the RustDB command line and run the "connect" command with the path to this directory as the first argument. If all goes well, this will establish a RustDB connection to the directory allowing you to manipulate it.
-
-Inside of the connection command line, you will be able to run the "help" command to list all database commands. These commands will be different from the ones in the normal command line.
-
-If you'd like to break the RustDB connection, just run the "exit" command.
-
-#### Manipulating a database
-With an established connection to a database, you are now able to read documents, create documents and groups, and delete documents. Basically you get it, you can completely manipulate the entire database.
-
-##### Commands
-These commands are the commands that are used to manipulate a database:
-
-`get <document>` - Reads a document in the database
+<details>
+    <summary markdown="span">Getting Started with the RustDB command line</summary>
+    <h3>Getting Started (CLI)</h3>
+    Before we start, make sure that you have all of the prerequisites below:
+    <h4>Prerequisites</h4>
+    <ul>
+        <li>Installation of Node.js (<a href="https://nodejs.org/en/download/">download</a>)</li>
+        <li>Basic knowledge on command line interfaces</li>
+        <li>Knowledge on databases</li>
+        <li>Knowledge on the JSON language</li>
+    </ul>
+    Great, let's start!
+    <br>
+    Creating a RustDB database is insanely simple. Start by downloading this repository, and running the console.bat file, this will open up the RustDB command line. 
+    <br>
+    Running "help" will list all avaliable commands that the RustDB console has to offer. Go ahead and let your curiosity roam around the list of commands.
+    <br>
+    <h4>Setting up a database</h4>
+    Setting up a RustDB database is extremely simple, all you have to do is create a directory. Go ahead and create a directory anywhere and name it "LearnRustDB".
+    <br>
+    <h4>Connecting to a database</h4>
+    With this new empty directory, go back inside of the RustDB command line and run the "connect" command with the path to this directory as the first argument. If all goes well, this will establish a RustDB connection to the directory allowing you to manipulate it.
+    <br>
+    Inside of the connection command line, you will be able to run the "help" command to list all database commands. These commands will be different from the ones in the normal command line.
+    <br>
+    If you'd like to break the RustDB connection, just run the "exit" command.
+    <br>
+    <h4>Manipulating a database</h4>
+    With an established connection to a database, you are now able to read documents, create documents and groups, and delete documents. Basically you get it, you can completely manipulate the entire database.
+    <br>
+    <h5>Commands</h5>
+    These commands are the commands that are used to manipulate a database:
+    <br>
+    <code>get (document)</code> - Reads a document in the database
+    <br>
+    <code>rm-doc (document)</code> - Removes a document
+</details>
