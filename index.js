@@ -30,7 +30,7 @@ class Connection {
     }
     ReadDocument = (document) => {
         if (!this.DocumentExists(document)) DocumentDoesntExist(documentsPath + "\\" + document + ".json")
-        return JSON.parse(fs.readFileSync(documentsPath + document + ".json"))
+        return JSON.parse(fs.readFileSync(documentsPath + document + ".json", "utf-8"))
     }
     GetDocument = (document) => {
         if (!this.DocumentExists(document)) DocumentDoesntExist(documentsPath + "\\" + document + ".json")
