@@ -1,6 +1,8 @@
-const RustDocument = require("./document")
-const Method = require("./method")
 const fs = require("fs")
+
+const RustDocument = require("./document")
+const RustGroup = require("./group")
+const Method = require("./method")
 
 DocumentDoesntExist = (path) => { throw new Error("Document doesn't exist. : " + path) }
 DocumentAlreadyExists = () => { throw new Error("Document already exists.") }
@@ -50,4 +52,4 @@ class Connection {
     }
 }
 
-module.exports = { Connection, RustDocument, Method }
+module.exports = { Connection, RustDocument, RustGroup, Method }
