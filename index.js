@@ -45,6 +45,9 @@ class Connection {
         if (this.GroupExists(group)) GroupAlreadyExists(this.path + group)
         fs.mkdirSync(this.path + group)
     }
+    DeleteGroup = (group) => {
+        if (!this.GroupExists(group)) GroupDoesntExist(this.path + group)
+    }
 }
 
 module.exports = { Connection, RustDocument, Method }
