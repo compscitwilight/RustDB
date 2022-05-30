@@ -1,5 +1,5 @@
 {
-  "name": "rustydb",
+  "name": "rustdb",
   "version": "1.0.0",
   "description": "Personal NoSQL database tool",
   "main": "index.js",

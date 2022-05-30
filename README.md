@@ -47,3 +47,36 @@ It is also open-source (main reason why it's on here anyways), so create a pull-
     <br>
     <code>rm-doc (document)</code> - Removes a document
 </details>
+<br>
+<details>
+    <summary markdown="span">Getting started with the NPM package</summary>
+    <h3>Getting started (NPM)</h3>
+    Before we start, make sure that you have all of the prerequisites below:
+    <h4>Prerequisites</h4>
+    <ul>
+        <li>Installation of Node.js (<a href="https://nodejs.org/en/download/">download</a>)</li>
+        <li>Knowledge on Node.js and NPM</li>
+        <li>Knowledge on databases</li>
+        <li>Knowledge on the JSON language</li>
+    </ul>
+    Great, let's start.
+    <br>
+    Using the NPM version of RustDB allows you to become more flexible with the database tool. This allows you to treat the tool as a library that you can use in your code, rather than a shell command line.
+    <br>
+    <h4>Adding the module to your project</h4>
+    To add RustDB as a module in your project, open a new terminal inside of your project's root directory. From here run the following commands
+    <br>
+    <code>npm init -y</code> (if NPM isn't already initiated in your project)
+    <br>
+    <code>npm i https://github.com/devrusty/RustDB</code>
+    <br>
+    <br>
+    If the installation was successful, you should have the RustDB module in your <code>node_modules</code> folder.
+    <br>
+    <br>
+    With this module in your project, we can now start using RustDB.
+    <br>
+    Opening a Javascript file, you will now be able to include RustDB as a module using this line of code
+    <br>
+    <code>const rustdb = require("rustdb")</code>
+</details>
