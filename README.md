@@ -1,5 +1,6 @@
 # RustDB
 ### Easy to use NoSQL database written entirely with Javascript and Node.js
+#### (use in real world applications is not recommended)
 
 RustDB is an in-development, NoSQL database written entirely with Javascript and Node.js. It is intended to be an extremely simple database software, without the hassle of setting up regular databases. 
 
